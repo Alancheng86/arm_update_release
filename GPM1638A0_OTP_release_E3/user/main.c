@@ -389,6 +389,7 @@ LCDTest:
 			if(mm_KEYB10 == 0)      /////////++
             {
                 VCOMDH++;
+							  if(VCOMDH > 0X00ff){	VCOMDH=0;	}
 //                SSD2828_ENTER_LP_mode(); //enter  LP mode	
 //                STM32TOSSD2828_W_COM(0xb7);		//LP DCS mode
 //                STM32TOSSD2828_W_DATA_16BITS(0x0752);
@@ -403,6 +404,7 @@ LCDTest:
             if(mm_KEYB11 == 0)       /////////--
             {
                 VCOMDH--;
+							if(VCOMDH < 0X0000){	VCOMDH=0X00FF;	}
 //                SSD2828_ENTER_LP_mode(); //enter  LP mode				
 				DelayMs(6);
                 VCOM_set(VCOMDH);
